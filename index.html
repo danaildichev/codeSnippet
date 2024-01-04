@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+	<head>
+	
+		<title>Code Snippet</title>
+		
+		<link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		
+		<style>
+		
+		.text-base-content { color: white }
+		.border-base-60 { border-color: hsl(262 80% 50%) }
+		.bg-base-60 { background-color: hsl(262 80% 50%) }
+		.bg-base-60-hover:hover { background-color: hsl(262 80% 30%) }
+		
+		</style>
+	
+	</head>
+  
+	<body>
+	
+		<div class="text-2xl">
+			<p>This demo uses Tailwind, Daisy UI, and FontAwesome.</p>
+		</div>
+		
+		<!-- main content -->
+    <main>
+
+
+        <!------------------------------>
+        <!-- section: generic section -->
+        <section class="py-6">
+
+            <div class="container mx-auto px-6 sm:px-0 bg-base-200 rounded-2xl">
+
+                <!-------------------->
+                <!-- section header -->
+                <header class="p-6 pb-3">
+                    <div class="pb-3">
+                        <h2 class="text-4xl mr-4 pl-6 block md:inline font-bold text-primary">
+                            Code Snippet
+                        </h2>
+                        
+                    </div>
+                    <div class="glass h-3 shadow-none rounded-b-2xl"></div>
+                </header>
+                <!-- end section header -->
+                <!------------------------>
+
+                <!--------------------->
+                <!-- section content -->
+                <div class="p-6 pt-3">
+
+                    <p class="text-2xl my-3">A code snippet with overflow on X and Y axis.</p>
+
+					<!-- code snippet container -->
+					<div class="my-6">
+
+						<!-- title bar and action buttons -->
+						<div class="relative flex justify-between bg-base-60 rounded-2xl pl-9">
+
+							<!-- title -->
+							<div><p class="text-base-content font-bold">Dummy Text</p></div>
+
+							<!-- action buttons -->
+							<div class="absolute right-0 join">
+
+								<!-- button: modal -->
+								<button class="join-item btn btn-sm border-0 bg-base-60 bg-base-60-hover text-base-content rounded-t-none"
+										onclick="codeSnippetModal_exampleCodeSnippet.showModal()">
+									<i class="fa-solid fa-maximize mr-1"></i>
+									Expand
+								</button>
+								<!-- button: modal -->
+
+
+								<!-- button: height -->
+								<div id="containerFor_input_maxHeight_exampleCodeSnippet" class="join-item dropdown dropdown-end">
+									<label for="input_maxHeight_exampleCodeSnippet" tabindex="0" class="btn btn-sm border-0 bg-base-60 bg-base-60-hover rounded-none text-base-content">
+										<i class="fa-solid fa-text-height fa-flip-horizontal"></i>
+										Height
+									</label>
+									<div tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-60 rounded-box mt-4">
+
+										<!-- input[range]: snippet max height (wrapped in tooltip) -->
+										<div class="tooltip tooltip-left" data-tip="50% of viewport">
+											<input type="range" name="maxHeight_exampleCodeSnippet" id="input_maxHeight_exampleCodeSnippet" data-code-snippet="exampleCodeSnippet"
+												   value="50" min="0" max="100"
+												   style="writing-mode: vertical-lr; transform: rotate(180deg)">
+										</div>
+										<!-- end input[range]: snippet max height (wrapped in tooltip) -->
+
+									</div>
+								</div>
+								<!-- end button: height -->
+
+								<!-- button: copy -->
+								<button class="join-item btn btn-sm border-0 bg-base-60 bg-base-60-hover text-base-content
+											   transition duration-300"
+										data-code-snippet="exampleCodeSnippet"
+										id="btn_copyCodeSnippet_exampleCodeSnippet">
+									<i class="fa-solid fa-copy mr-1"></i>
+									Copy
+								</button>
+								<!-- end button: copy -->
+
+							</div>
+							<!-- end action buttons -->
+
+						</div>
+						<!-- end title bar and action buttons -->
+
+						<!-- code snippet -->
+						<div class="bg-base-100 p-6 mx-3 rounded-b-2xl border-4 border-t-0 border-base-60">
+							<div id="exampleCodeSnippet"
+								 style="max-height: 50vh; transition: max-height 0.5s ease-out;"
+								 class="codeSnippet whitespace-pre overflow-auto font-mono
+										text-white text-xl overscroll-contain"
+							><span class="codeSnippetSlot"></span></div>
+						</div>
+						<!-- end code snippet -->
+
+					</div>
+					<!-- end code snippet container -->
+					
+					<dialog id="codeSnippetModal_exampleCodeSnippet" class="modal">
+					  <div class="modal-box min-w-full min-h-full rounded-none">
+						<h3 class="font-bold text-lg">Dummy Text</h3>
+						<p class="py-4">Press ESC key or click the button below to close</p>
+						
+						<div id="codeSnippetModalBox_exampleCodeSnippet"
+							 class="codeSnippetModalBox whitespace-pre overflow-auto font-mono text-white text-xl"
+						><span class="codeSnippetSlot"></span></div>
+						
+						<div class="modal-action">
+						  <form method="dialog">
+							<!-- if there is a button in form, it will close the modal -->
+							<button class="btn">Close</button>
+						  </form>
+						</div>
+					  </div>
+					</dialog>
+
+
+
+
+                </div>
+                <!-- end section content -->
+                <!------------------------->
+
+            </div>
+
+        </section>
+        <!-- endsection: generic section -->
+        <!--------------------------------->
+
+
+    </main>
+    <!-- end main content -->
+
+	
+	</body>
+	
+	<script>
+	
+		const codeSnippetSlots = document.getElementsByClassName('codeSnippetSlot');
+		
+		const slotText =
+`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dignissim nibh sapien, vitae mattis massa imperdiet ut. Duis sit amet lacinia felis. Nunc non lectus a libero tincidunt ullamcorper et vitae enim. Phasellus sed egestas nisi, at aliquet lorem. Sed accumsan, nulla quis porttitor efficitur, erat quam condimentum enim, ut faucibus arcu mauris a diam. Curabitur mi augue, efficitur eu venenatis eu, scelerisque id purus. Integer massa augue, tincidunt sit amet mauris quis, placerat auctor ligula.
+
+Fusce vel rutrum massa, eu euismod tortor. Pellentesque tincidunt odio ac elit vehicula fermentum. Sed rutrum sed tortor interdum varius. Phasellus mollis feugiat purus convallis laoreet. Proin nisl urna, viverra in venenatis a, porta eu diam. Proin vel vulputate velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam venenatis pharetra lacus varius imperdiet. Duis tincidunt fringilla felis, ut eleifend arcu interdum nec. Praesent sit amet ante id sem mollis laoreet.
+
+In id leo eget nulla feugiat interdum. Duis rhoncus at quam sit amet efficitur. Integer eu eros lorem. Nam tincidunt congue felis vel egestas. Vestibulum porttitor justo risus, eget hendrerit lectus volutpat sit amet. Aliquam pulvinar volutpat tellus, et ultrices est lacinia vel. Nulla lobortis molestie nibh, ac pharetra est. Praesent elementum dui a nisi vehicula, vitae porttitor neque cursus. Donec pharetra sodales nunc, a tempor justo tempor id. Mauris eget lectus tincidunt, commodo leo non, elementum felis. Proin vitae diam lacus. Sed mattis justo in nisl mollis, lacinia lobortis erat laoreet.
+
+Cras ut finibus eros, at placerat eros. Proin et nisi vel dolor placerat viverra. Proin sit amet ipsum non turpis blandit maximus. Pellentesque elementum sit amet elit ut interdum. Aenean sit amet scelerisque neque. Aliquam volutpat tincidunt dui et convallis. Quisque ut urna in lorem aliquam pharetra euismod id magna. Nulla enim nulla, tempus a vestibulum in, viverra in velit. Mauris cursus lectus vel sem interdum fringilla. Nullam fringilla velit quam, non aliquet lacus tincidunt ut.
+
+Aliquam odio mi, lacinia sit amet diam id, tempus dapibus sem. Etiam consectetur gravida felis a interdum. Suspendisse non ex turpis. Proin blandit faucibus dapibus. Cras commodo malesuada sapien eget tempor. Quisque mollis faucibus ligula, nec efficitur arcu laoreet id. Aliquam et ipsum quam. Integer ante enim, placerat ut augue sed, dignissim varius augue.
+
+Aliquam scelerisque ante et diam pulvinar, ut feugiat erat pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eget eros volutpat, rhoncus nisi non, scelerisque ante. Integer nec leo volutpat sapien accumsan suscipit sed posuere erat. Quisque eu leo erat. Mauris elementum massa nec diam suscipit, quis sollicitudin eros pretium. Sed lobortis volutpat tortor quis sodales. Vestibulum non ipsum vel ex lacinia imperdiet quis ac elit. Sed vitae scelerisque elit. Proin tincidunt est sit amet nisl tempor semper. Duis laoreet blandit fringilla. Maecenas vehicula laoreet malesuada. Donec quis scelerisque tortor.
+
+Fusce molestie velit vitae elit dictum, tincidunt lacinia lectus ullamcorper. Aliquam sed tempus justo. Nunc nec odio quis quam blandit lobortis ac et sem. Sed at placerat ligula, quis hendrerit justo. Nulla vestibulum dui ut ex dapibus, ac feugiat eros faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce vulputate mattis leo eget tristique. Sed interdum mi eget pharetra efficitur.
+
+Curabitur nunc metus, mattis ut erat id, tincidunt suscipit nunc. Proin id enim vel tellus malesuada sagittis non vitae est. Mauris tempus condimentum erat, quis porta felis placerat ut. Vestibulum ut tellus sit amet odio aliquam dapibus ac et lectus. Donec quis nisi non ligula maximus vestibulum. Phasellus auctor metus convallis quam placerat, sit amet tempor lorem laoreet. Maecenas luctus, quam vel molestie luctus, dolor odio imperdiet mi, quis sagittis metus elit malesuada ligula. Aliquam in nunc lacus. Phasellus tortor eros, faucibus eget dui at, bibendum blandit augue.
+
+Suspendisse eu iaculis ipsum. Curabitur nec maximus lorem. Pellentesque id metus malesuada, tincidunt nibh quis, dapibus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi viverra venenatis efficitur. Nam quis varius leo. Aenean in dignissim justo. Sed ut semper libero, quis vulputate ex. In tristique sagittis ipsum, sed placerat lectus iaculis vel. Vivamus eget facilisis turpis, eu dignissim justo. Etiam rutrum felis et sollicitudin sagittis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie quis quam nec aliquam. Vivamus feugiat sapien id tincidunt feugiat. Sed quis metus non metus egestas rhoncus eget in lorem. Phasellus et lorem suscipit, pharetra sapien quis, cursus enim.
+
+Etiam varius diam eu tristique iaculis. Aenean ac lectus a ante pretium vehicula. Nulla gravida tellus odio. Duis eget erat neque. Etiam nec turpis nec augue blandit convallis ut lacinia mauris. Donec sit amet sodales dui. Nulla gravida eget leo eget interdum. Nunc sit amet neque eget arcu tempus sollicitudin id nec enim. Maecenas sit amet justo non elit molestie posuere id ac metus. Nullam convallis eros nec pretium porttitor. Donec non mi at sem maximus eleifend non dignissim justo. Mauris ornare, lacus eget dictum ultricies, lectus augue imperdiet mi, id euismod lacus sapien nec neque. Nullam tellus enim, blandit ut pharetra at, molestie non diam. Vestibulum ut nisi odio. Quisque id odio molestie, aliquet risus rutrum, ullamcorper sapien. Integer vitae vulputate tellus, eleifend posuere metus.
+
+In risus tortor, tempus in massa eu, accumsan rhoncus lorem. Phasellus convallis imperdiet elit, eu elementum nulla pharetra sit amet. Donec egestas volutpat ex non tempor. Cras hendrerit nunc in metus volutpat, vitae condimentum metus convallis. Nulla non lobortis leo. Nam in tristique eros, a lobortis dolor. Maecenas sit amet convallis erat. Nullam quis felis neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce vulputate, arcu nec convallis porttitor, elit ante blandit neque, id convallis libero arcu eu leo. Fusce risus tellus, bibendum sed volutpat euismod, condimentum in augue.
+
+Donec quis auctor ante. Nunc tristique quam id vehicula volutpat. Phasellus pulvinar leo eu diam vestibulum egestas. Nullam euismod, tortor at dignissim cursus, ipsum mi accumsan elit, et luctus nulla felis sed dui. Mauris blandit pharetra tellus, eget vestibulum augue ullamcorper sit amet. Fusce tempus felis non mi dictum, et dignissim dolor varius. In ac pulvinar tortor, nec elementum massa. Nulla gravida tincidunt neque ut vulputate. Suspendisse potenti. Proin cursus, nisi sit amet dapibus tincidunt, augue nulla venenatis elit, ac bibendum libero ligula ac mauris.
+
+Donec ac tortor vel sem porttitor hendrerit vitae sed lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus vehicula et nunc sed tristique. Duis varius, turpis non facilisis ultrices, enim orci commodo erat, sit amet posuere enim libero vel velit. Curabitur libero elit, lacinia vel feugiat vitae, congue at est. Morbi tempor pellentesque mi pretium luctus. Etiam in cursus tellus. Donec sit amet dictum dolor, a fermentum arcu. Duis varius, sapien in rutrum lacinia, risus dolor pharetra odio, quis venenatis nibh odio vel lectus. Curabitur ornare dignissim sapien sit amet accumsan. Duis et dignissim dui. Ut semper tellus est, vitae consectetur nibh volutpat sed. Etiam et molestie leo. Proin metus urna, feugiat vel gravida in, pulvinar at quam. Suspendisse sed purus lacinia, tristique massa sagittis, feugiat augue.
+
+Aenean est orci, sollicitudin sit amet turpis non, aliquet interdum ex. Vivamus laoreet purus vitae ipsum tempor, eu molestie est fermentum. Cras a tortor sapien. Fusce lobortis euismod vulputate. Maecenas vel porttitor leo. Mauris hendrerit nisi hendrerit, cursus est eu, molestie tortor. Nullam varius aliquet accumsan. Etiam eu dapibus sem, nec semper turpis. Mauris fermentum aliquam felis, id pellentesque massa accumsan in. Vestibulum pharetra arcu ante, eget tristique turpis rutrum et.
+
+Aliquam placerat odio sit amet quam commodo, a porta est maximus. Mauris auctor malesuada enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ut aliquet sapien, non consequat urna. Proin aliquet lacinia aliquam. Phasellus tempor sodales ornare. In placerat porta eleifend. Nulla eget rutrum mi. Aenean viverra ullamcorper fermentum. Donec eget turpis magna.
+
+In a odio et sem vestibulum faucibus. Morbi dignissim, tellus vel hendrerit scelerisque, ligula nisl scelerisque nibh, a cursus nibh risus auctor mauris. Aenean pharetra est felis, in tincidunt augue ultricies vel. Etiam maximus id lectus vitae eleifend. Aenean sagittis, lorem egestas hendrerit rutrum, sapien nulla condimentum nisl, ut accumsan eros turpis ut risus. Nullam porttitor augue ac tincidunt rutrum. Vestibulum eget magna id urna laoreet finibus. Aliquam lobortis ultrices mi ut lobortis. Curabitur vel odio id lacus vulputate sollicitudin a quis neque. Proin ultrices consequat blandit. Ut hendrerit vel massa vel dapibus. Sed vitae auctor magna.
+
+Mauris id cursus nisl, eget commodo nibh. Proin ultricies efficitur ligula, sit amet elementum nisi. Ut consequat laoreet pretium. Nunc sit amet turpis arcu. Integer scelerisque semper dolor quis maximus. Sed sapien ipsum, sollicitudin eu laoreet id, tincidunt in lacus. In posuere erat nec justo tristique, fringilla rhoncus nibh consectetur. Cras fringilla eros id pharetra viverra. Aenean risus lectus, vehicula in ante non, tempus tincidunt leo. Aenean tincidunt, ligula eget vehicula viverra, turpis libero tempus augue, quis dictum orci eros eu urna. Donec ante metus, faucibus vel volutpat ut, ultricies nec nunc. Ut id nulla quis est tempus tristique quis ut urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec volutpat dui, vel vehicula nunc. Nunc sagittis pretium risus vitae ultricies. Nam tellus nibh, interdum et interdum nec, facilisis eget lectus. Curabitur quis semper risus. Vivamus semper dictum ligula, id vulputate odio accumsan vel. Cras dapibus scelerisque sagittis. Sed suscipit, ipsum at euismod rhoncus, nulla orci semper nisi, in hendrerit erat felis vitae sapien. Praesent est elit, luctus nec quam in, malesuada suscipit quam.
+
+Cras luctus nisi a turpis condimentum venenatis. Aenean tempus ornare leo, at varius ante blandit ut. Quisque consectetur justo magna, nec blandit odio ultrices sed. In molestie est et tincidunt fermentum. Mauris non est id velit pulvinar iaculis. In ut sagittis sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque ut ultricies lacus. Morbi in nisi ac est dapibus efficitur. Quisque iaculis tincidunt egestas. Vestibulum at finibus mauris, eleifend molestie odio. Nulla hendrerit accumsan diam sit amet facilisis. Donec nulla urna, finibus iaculis sollicitudin vel, hendrerit vel mauris.
+
+Nullam sed libero vel tellus vehicula tristique at blandit dolor. Suspendisse ut enim turpis. Sed mauris erat, commodo a pharetra ut, fringilla ac enim. Cras blandit pharetra diam a viverra. Donec vehicula velit magna. Curabitur turpis sapien, mollis vel vulputate ut, auctor tincidunt magna. Aenean at eros et tellus pulvinar hendrerit. Curabitur quis tempor turpis. Quisque sit amet ipsum diam. Phasellus auctor ullamcorper augue, condimentum mattis massa ornare non.
+
+Duis quis ante turpis. Sed non tincidunt erat, non pellentesque sem. Mauris commodo consectetur dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel lobortis neque. Nunc porttitor metus sed eros scelerisque, consectetur pretium enim ultrices. Duis posuere, diam dignissim sagittis porttitor, urna tellus accumsan neque, ac consectetur nunc ante eget massa. Donec venenatis ligula in nunc consectetur tristique sit amet id felis. Curabitur eget sem varius, elementum mi sit amet, ullamcorper diam. Pellentesque ut rhoncus massa. In suscipit venenatis quam. Vestibulum nec ex imperdiet, interdum nisi in, consequat erat.
+
+Sed eget est suscipit, condimentum ligula sit amet, cursus quam. Etiam dictum enim congue neque elementum, nec semper lectus iaculis. In condimentum ut libero vel ultrices. Ut molestie dui quis pretium fringilla. Pellentesque massa lacus, varius eu lectus at, maximus efficitur metus. Mauris eget nisl nunc. Donec eget suscipit mauris. Suspendisse ex dolor, consequat nec turpis nec, tempus porttitor sem. Curabitur porttitor tortor feugiat odio sodales cursus. Suspendisse nec purus metus. Nulla efficitur molestie lectus, vitae tincidunt dui tempor quis. Sed velit tortor, egestas vestibulum mi in, malesuada bibendum augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
+		
+		for (const codeSnippetSlot of codeSnippetSlots)
+		{
+			codeSnippetSlot.innerText = slotText;
+		}
+	
+	</script>
+	
+	<script src="CodeSnippetsHandler.js"></script>
+    <script>
+
+        const codeSnippets = document.getElementsByClassName('codeSnippet');
+        const codeSnippetsHandler = new CodeSnippetsHandler(codeSnippets);
+
+    </script>
+	
+</html>
