@@ -4,7 +4,7 @@
 
 A component to display code
 
-Use `CodeSnippetsHandler.js` to manage one or more instances of the code snippet UI seen in the `index.html` file or the live demo. This class and UI is what I use on my portfolio. It was built with Laravel Blade, Tailwind, Daisy UI, Font Awesome, and a few custom CSS classes extended from Daisy. The demo file a bit stripped down but you might need to look at the code samples I provide on the live demo page.
+Use `CodeSnippetsHandler.js` to manage one or more instances of the code snippet UI seen in the `index.html` file or the live demo. This class and UI is what I use on my portfolio. It was built with Laravel Blade, Tailwind, Daisy UI, Font Awesome, and a few custom CSS classes extended from Daisy. The demo file a bit stripped down but you might need to look at the code samples I provide on the live demo page. The code snippets component feature a full screen modal, a copy button, and if a code snippet exceeds the default max height of 50vh, there will be a button that shows a dropdown which contains a slider. The user can adjust the height of the code snippet UI.
 
 ## Live Demo
 
@@ -138,7 +138,8 @@ Then you can use the code snippet component in your Blade files
 
 ## API
 
-The `CodeSnippetsHandler` class does not expose any functions or options.
+- The `CodeSnippetsHandler` class does not expose any functions or options.
+- The code snippet blade component requires a container element id, a title text string, and optionally allows for overriding the default max height and passing through extra CSS for the UI.
 
 ## Issues
 
